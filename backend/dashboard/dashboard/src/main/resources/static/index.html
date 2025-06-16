@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <form id="login-form">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <div class="dashboard hidden">
+    <header>
+      <h1>Sales Dashboard</h1>
+    </header>
+
+    <section class="summary-cards">
+      <div class="card" id="total-sales"><span>🛒</span> Total Sales: <b>0</b></div>
+      <div class="card" id="total-revenue"><span>💰</span> Total Revenue: <b>$0</b></div>
+      <div class="card" id="order-count"><span>📦</span> Orders: <b>0</b></div>
+      <div class="card" id="average-order"><span>📊</span> Avg Order Value: <b>$0</b></div>
+    </section>
+
+    <section class="filters">
+      <input type="date" id="fromDate">
+      <input type="date" id="toDate">
+      <button id="filterButton">Apply Filters</button>
+    </section>
+
+    <section class="charts" style="position:relative;">
+      <div id="charts-loader" class="loader" style="display:none; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:10;"></div>
+      <div style="flex:1;min-width:320px;max-width:520px;">
+        <h3>Sales Over Time</h3>
+        <canvas id="salesLineChart" width="640" height="360"></canvas>
+      </div>
+      <div style="flex:1;min-width:320px;max-width:520px;">
+        <h3>Revenue by Product</h3>
+        <canvas id="salesBarChart" width="640" height="360"></canvas>
+      </div>
+    </section>
+
+    <section class="sales-table">
+      <h2>Top Products</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Units Sold</th>
+            <th>Revenue</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="salesTableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="recent-orders">
+      <h2>Recent Orders</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Order #</th>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="recentOrdersBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
