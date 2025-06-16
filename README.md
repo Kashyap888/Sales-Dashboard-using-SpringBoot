@@ -19,13 +19,36 @@ A **Sales Dashboard** web application built using **Spring Boot (Java)** for the
 
 ---
 
-## 🖼️ Project Output
+## 🖼️ Project Screenshots
 
-> 📸 Here’s what the final dashboard looks like:
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Kashyap888/Sales-Dashboard-using-SpringBoot/main/Sales%20Dashboard%20Output.png" alt="Dashboard Output" width="700"/>
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Kashyap888/Sales-Dashboard-using-SpringBoot/main/Screenshoot/Login.png" alt="Login Page" width="350"/><br>
+      <strong>Login Page</strong>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Kashyap888/Sales-Dashboard-using-SpringBoot/main/Screenshoot/sales%20overview%202.png" alt="Sales Overview" width="350"/><br>
+      <strong>Sales Overview</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Kashyap888/Sales-Dashboard-using-SpringBoot/main/Screenshoot/branch.png" alt="Branch View" width="350"/><br>
+      <strong>Branch View</strong>
+    </td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Kashyap888/Sales-Dashboard-using-SpringBoot/main/Screenshoot/data.png" alt="Data Table" width="350"/><br>
+      <strong>Data Table</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="https://raw.githubusercontent.com/Kashyap888/Sales-Dashboard-using-SpringBoot/main/Screenshoot/Sales%20overview.png" alt="Total Sales Overview" width="700"/><br>
+      <strong>Total Sales Overview</strong>
+    </td>
+  </tr>
+</table>
 
 ---
 
