@@ -1,2 +1,2 @@
 # Sales-Dashboard-project
-implementing Spring Boot in my new project
+learnt and implemented Spring Boot in my new project
