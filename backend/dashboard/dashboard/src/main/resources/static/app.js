@@ -1,12 +1,35 @@
-// Enhanced app.js
-
-document.getElementById('login-form').addEventListener('submit', function(e) {
+document.getElementById('login-form').addEventListener('submit', async function (e) {
   e.preventDefault();
-  document.querySelector('.login-container').classList.add('hidden');
-  document.querySelector('.dashboard').classList.remove('hidden');
-  fetchDashboardData(); // Load dashboard data after login
+
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  try {
+    const response = await fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+    });
+
+    if (response.ok) {
+      document.getElementById('login-error').style.display = 'none';
+      document.querySelector('.login-container').classList.add('hidden');
+      document.querySelector('.dashboard').classList.remove('hidden');
+      fetchDashboardData();
+    } else {
+      const text = await response.text();
+      document.getElementById('login-error').innerText = text;
+      document.getElementById('login-error').style.display = 'block';
+    }
+  } catch (err) {
+    document.getElementById('login-error').innerText = 'Login failed. Please try again.';
+    document.getElementById('login-error').style.display = 'block';
+  }
 });
 
+// ================= DASHBOARD LOGIC =================
 document.getElementById('filterButton').addEventListener('click', function() {
   fetchDashboardData();
 });
@@ -22,6 +45,7 @@ function hideLoading(selector) {
 function showLoadingCharts() {
   document.getElementById('charts-loader').style.display = 'block';
 }
+
 function hideLoadingCharts() {
   document.getElementById('charts-loader').style.display = 'none';
 }
@@ -37,7 +61,6 @@ function fetchDashboardData() {
 }
 
 function fetchSummary(fromDate, toDate) {
-  // showLoading('#total-sales');  // <-- Remove or comment out this line
   fetch(`/api/summary?from=${fromDate}&to=${toDate}`)
     .then(response => response.json())
     .then(data => updateSummary(data))
@@ -79,7 +102,6 @@ function fetchProducts(fromDate, toDate) {
     });
 }
 
-// Demo: Recent Orders (replace with backend call if available)
 function fetchRecentOrders() {
   const demoOrders = [
     { id: 101, customer: "Alice", amount: 250, date: "2025-06-01" },
@@ -192,7 +214,3 @@ function updateRecentOrders(orders) {
     body.innerHTML += tr;
   });
 }
-
-// window.onload = function() {
-//   fetchDashboardData();
-// };
